@@ -6,6 +6,21 @@ package proyecto1;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import oracle.jdbc.OracleTypes;
+import java.sql.Types;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import java.util.Base64;
 /**
  *
  * @author david
@@ -313,21 +328,58 @@ public class MainDisplay extends javax.swing.JFrame {
     private void adopterLoginBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adopterLoginBTNActionPerformed
         String userUsername = loginUsernameTF.getText(); // Get the text from the username text field
         String userPassword = adopterPasswordTF.getText(); // Get the text from the password text field
+        Connection connection = null;
+        CallableStatement callableStatement = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        String RPassword ;
         
         try {
             String filePath = "user.txt"; // The path to your file in the NetBeans project
             BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
             writer.write(userUsername);
             writer.close();
+            //db
+            connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:DBDAVID", "ge", "ge");
+            String sql = "{ ? = call getIdPersonPerUsernames(?) }";
+            callableStatement = connection.prepareCall(sql);
+            callableStatement.registerOutParameter(1, Types.INTEGER);  // Tipo de datos de retorno de la función
+            callableStatement.setString(2, userUsername);
+            
+            callableStatement.execute();
+            int result = callableStatement.getInt(1); // 1 es el índice del parámetro de salida
+            
+            // Utilizar el resultado como desees
+            System.out.println("Resultado de la función: " + result);
+            callableStatement.close();
+            String sql2 = "{ ? = call getIdPasswordPerUsernames(?) }";
+            callableStatement = connection.prepareCall(sql2);
+            callableStatement.registerOutParameter(1, Types.VARCHAR);  // Tipo de datos de retorno de la función
+            callableStatement.setString(2, userUsername);
+            callableStatement.execute();
+            RPassword = callableStatement.getString(1); 
+            callableStatement.close();
+            connection.close();
+            
+            if(result>0 && RPassword!=""){ 
+                UsersFrame usersFrame = new UsersFrame();
+                usersFrame.setVisible(true);
+                this.dispose(); 
+            }else{
+                JOptionPane.showMessageDialog(null, "Username not registered or incorrect password", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            
         } catch (IOException e) {
             // Handle any potential IOException here, e.g., show an error message.
             e.printStackTrace();
+        } catch (SQLException ex) {
+            Logger.getLogger(MainDisplay.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        // Create and open the UsersFrame
-        UsersFrame usersFrame = new UsersFrame();
-        usersFrame.setVisible(true);
-        this.dispose();
+        //Create and open the UsersFrame
+        //UsersFrame usersFrame = new UsersFrame();
+        //usersFrame.setVisible(true);
+        
     }//GEN-LAST:event_adopterLoginBTNActionPerformed
 
     private void loginUsernameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginUsernameTFActionPerformed
@@ -341,20 +393,54 @@ public class MainDisplay extends javax.swing.JFrame {
     private void rescuerLoginBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rescuerLoginBTNActionPerformed
         String rescuerUsername = loginRescuerTF.getText(); // Get the text from the rescuer text field
         String rescuerPassword = rescuerPasswordTF.getText(); // Get the text from the password text field
+        Connection connection = null;
+        CallableStatement callableStatement = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        String RPassword ;
         
         try {
             String filePath = "user.txt"; // The path to your file in the NetBeans project
             BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
             writer.write(rescuerUsername);
             writer.close();
+            connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:BDPRUEBA", "ge", "ge");
+            String sql = "{ ? = call getIdPersonPerUsernames(?) }";
+            callableStatement = connection.prepareCall(sql);
+            callableStatement.registerOutParameter(1, Types.INTEGER);  // Tipo de datos de retorno de la función
+            callableStatement.setString(2, rescuerUsername);
+
+            callableStatement.execute();
+            int result = callableStatement.getInt(1);  // 1 es el índice del parámetro de salida
+             
+            // Utilizar el resultado como desees
+            System.out.println("Resultado de la función: " + result);
+            callableStatement.close();
+            String sql2 = "{ ? = call getIdPasswordPerUsernames(?) }";
+            callableStatement = connection.prepareCall(sql2);
+            callableStatement.registerOutParameter(1, Types.VARCHAR);  // Tipo de datos de retorno de la función
+            callableStatement.setString(2, rescuerUsername);
+            callableStatement.execute();
+            RPassword = callableStatement.getString(1); 
+            callableStatement.close();
+            connection.close();
+            if(result>0 && RPassword!=""){ 
+                UsersFrame usersFrame = new UsersFrame();
+                usersFrame.setVisible(true);
+                this.dispose(); 
+            }else{
+                JOptionPane.showMessageDialog(null, "Username not registered or incorrect password", "Error", JOptionPane.ERROR_MESSAGE);    
+            }
         } catch (IOException e) {
             // Handle any potential IOException here, e.g., show an error message.
             e.printStackTrace();
+        } catch (SQLException ex) {
+           Logger.getLogger(MainDisplay.class.getName()).log(Level.SEVERE, null, ex);
         }
         // Create and open the UsersFrame
-        RescuerHome rescuerHome = new RescuerHome();
-        rescuerHome.setVisible(true);
-        this.dispose();
+        //RescuerHome rescuerHome = new RescuerHome();
+        //rescuerHome.setVisible(true);
+        //this.dispose();
     }//GEN-LAST:event_rescuerLoginBTNActionPerformed
 
     private void createAccBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccBTNActionPerformed

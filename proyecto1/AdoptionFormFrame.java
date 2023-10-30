@@ -15,6 +15,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -70,10 +72,10 @@ public class AdoptionFormFrame extends javax.swing.JFrame {
         AFinterestCBOX = new javax.swing.JComboBox<>();
         javax.swing.JLabel jLabel4 = new javax.swing.JLabel();
         javax.swing.JLabel jLabel7 = new javax.swing.JLabel();
-        javax.swing.JLabel jLabel8 = new javax.swing.JLabel();
         AFpetSpaceFC = new javax.swing.JFileChooser();
-        AFsleepingSpaceFC = new javax.swing.JFileChooser();
         AFbudgetJSPIN = new javax.swing.JSpinner();
+        AFmotiveTF = new javax.swing.JTextField();
+        javax.swing.JLabel jLabel8 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         AFotherPetsCheck = new javax.swing.JCheckBox();
         javax.swing.JLabel jLabel5 = new javax.swing.JLabel();
@@ -163,55 +165,44 @@ public class AdoptionFormFrame extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
         jLabel7.setText("Pet space photo");
 
-        jLabel8.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
-        jLabel8.setText("Sleeping space photo");
-
         AFpetSpaceFC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AFpetSpaceFCActionPerformed(evt);
             }
         });
 
-        AFsleepingSpaceFC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AFsleepingSpaceFCActionPerformed(evt);
-            }
-        });
+        jLabel8.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        jLabel8.setText("Motive");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(AFpetSpaceFC, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AFmotiveCheck)
+                    .addComponent(AFisHouseOwnerCheck)
+                    .addComponent(AFauthorizationCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AFmotiveCheck)
-                            .addComponent(AFisHouseOwnerCheck)
-                            .addComponent(AFauthorizationCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(AFbudgetJSPIN, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(AFinterestCBOX, javax.swing.GroupLayout.Alignment.LEADING, 0, 78, Short.MAX_VALUE)
-                                    .addComponent(AFdailyTimeCBOX, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(2, 2, 2)
+                        .addComponent(AFbudgetJSPIN, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(AFpetSpaceFC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(AFsleepingSpaceFC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(AFinterestCBOX, javax.swing.GroupLayout.Alignment.LEADING, 0, 78, Short.MAX_VALUE)
+                            .addComponent(AFdailyTimeCBOX, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(AFmotiveTF, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel8)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -235,15 +226,15 @@ public class AdoptionFormFrame extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(AFinterestCBOX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AFmotiveTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(47, 47, 47)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(AFpetSpaceFC, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AFsleepingSpaceFC, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(250, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -362,9 +353,6 @@ public class AdoptionFormFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(600, 600, 600)
@@ -372,27 +360,28 @@ public class AdoptionFormFrame extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AFpetPhotoFC, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(AFpetPhotoFC, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(AFreturnHomeBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(AFconfirmBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(72, 72, 72)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(71, 71, 71)
-                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(146, 146, 146)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(AFconfirmBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(AFreturnHomeBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(90, Short.MAX_VALUE))
+                        .addGap(71, 71, 71)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(88, 88, 88)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AFconfirmBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AFreturnHomeBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -405,11 +394,7 @@ public class AdoptionFormFrame extends javax.swing.JFrame {
                         .addComponent(AFpetPhotoFC, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(AFconfirmBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(AFreturnHomeBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(67, 67, 67))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -420,14 +405,31 @@ public class AdoptionFormFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 949, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 949, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        setBounds(0, 0, 1051, 957);
+        setBounds(0, 0, 1051, 748);
     }// </editor-fold>//GEN-END:initComponents
-    
+    public static int extractIntegerBeforeComma(String input) {
+        // Split the input string by comma and trim any leading/trailing whitespace
+        String[] parts = input.split(",");
+        if (parts.length > 0) {
+            try {
+                // Attempt to parse the first part as an integer
+                return Integer.parseInt(parts[0].trim());
+            } catch (NumberFormatException e) {
+                // Handle the case where the first part is not a valid integer
+                // You can return a default value or throw an exception as needed
+                // For example, return 0 in case of a parsing error
+                return 0;
+            }
+        } else {
+            // Handle the case where there is no comma in the input string
+            // You can return a default value or throw an exception as needed
+            // For example, return 0 in case of no comma
+            return 0;
+        }
+    }
     public String getUsername() {
         String fileName = "user.txt"; // Name of the file in your project directory
         String user = null;
@@ -468,7 +470,7 @@ public class AdoptionFormFrame extends javax.swing.JFrame {
             connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:DBDAVID", "ge", "ge");
 
             // Define your SQL query to retrieve data
-            String sql = "SELECT IDPET, PETNAME FROM PET";
+            String sql = "SELECT IDADOPTIONTEST, PETNAME FROM PET";
 
             // Prepare and execute the SQL query
             preparedStatement = connection.prepareStatement(sql);
@@ -476,7 +478,7 @@ public class AdoptionFormFrame extends javax.swing.JFrame {
 
             // Add the retrieved data to the model
             while (resultSet.next()) {
-                String item = resultSet.getString("IDPET"); // Replace with the actual column name
+                String item = resultSet.getString("IDADOPTIONTEST"); // Replace with the actual column name
                 String petName = resultSet.getString("PETNAME");
                 String itemm = item + ", " + petName;
                 model.addElement(itemm);
@@ -548,97 +550,143 @@ public class AdoptionFormFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_AFpetSpaceFCActionPerformed
 
-    private void AFsleepingSpaceFCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AFsleepingSpaceFCActionPerformed
-         // Create and configure a JFileChooser for sleeping space
-        JFileChooser fileChooser = new JFileChooser();
-
-        // Show the file dialog to the user
-        int returnVal = fileChooser.showOpenDialog(this);
-
-        // Check if the user selected a file
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
-            // Get the selected file for sleeping space
-            selectedSleepingSpaceFile = fileChooser.getSelectedFile();
-        } else {
-            // The user canceled or closed the dialog
-            selectedSleepingSpaceFile = null;
-        }
-    }//GEN-LAST:event_AFsleepingSpaceFCActionPerformed
-
     private void AFconfirmBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AFconfirmBTNActionPerformed
         
         //Jspin
-        Object petBudget = AFbudgetJSPIN.getValue();
-        Object yearsWithPet = AFyearsWithPetJSPIN.getValue();
+        Object petBudgetO = AFbudgetJSPIN.getValue();
+        String petBudget = petBudgetO.toString();
+        Object yearsWithPetO = AFyearsWithPetJSPIN.getValue();
+        String yearsWithPet = yearsWithPetO.toString();
         
         //is house owner
+        int selectionHouseOwner = 0;
         if (isHouseOwnerSelected) {
-            System.out.println("House owner checkbox is selected");
+            selectionHouseOwner = 1;
         }
+        
+        
         
         //authorization
+        int selectionAuthorization = 0;
         if (isAuthorizationSelected) {
-            System.out.println("Authorization checkbox is selected");
+            selectionAuthorization = 1;
         }
         
-        //motive
+        //carereason
+        int carereason = 0;
         if (isMotiveSelected) {
-            System.out.println("Motive checkbox is selected");
+            carereason = 1;
+        }
+        
+        //other pets
+        
+        if(isOtherPetSelected){
+            
         }
         
         //average daily time
-        if (selectedDailyTime != null) {
-            System.out.println("Selected daily time: " + selectedDailyTime);
-        } else {
-            System.out.println("No daily time option selected");
-        }
+        String dailyTime = AFdailyTimeCBOX.getSelectedItem().toString();
+        
         
         //interest
-            if (selectedInterest != null) {
-            System.out.println("Selected interest: " + selectedInterest);
-        } else {
-            System.out.println("No interest option selected");
-        }
+        String interest = AFinterestCBOX.getSelectedItem().toString();
             
-        //authorization
-        if (isOtherPetSelected) {
-            System.out.println("Other pet checkbox is selected");
-        }
         
-        // pet space photo
+        //space photo
+        JFileChooser AFpetSpaceFC = new JFileChooser(); 
+        int returnValueSpace = AFpetSpaceFC.showOpenDialog(null);
+
+        File selectedPetSpaceFile = null; // Initialize it to null
+
+        if (returnValueSpace == JFileChooser.APPROVE_OPTION) {
+            selectedPetSpaceFile = AFpetSpaceFC.getSelectedFile();
+        }
+
+        FileInputStream spacePhoto = null;
+
         if (selectedPetSpaceFile != null) {
-            // You can now use the selectedFile in your code
-            String filePath = selectedPetSpaceFile.getAbsolutePath();
-            System.out.println("Selected file: " + filePath);
-        } else {
-            System.out.println("No file selected.");
+            try {
+                spacePhoto = new FileInputStream(selectedPetSpaceFile);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
         }
         
-        //pet sleeping space photo
-        if (selectedSleepingSpaceFile != null) {
-            // You can now use the selectedSleepingSpaceFile in your code
-            String filePath = selectedSleepingSpaceFile.getAbsolutePath();
-            System.out.println("Selected sleeping space file: " + filePath);
-        } else {
-            System.out.println("No sleeping space file selected.");
-        }
+        
         
         //old pet photo
-        if (selectedPetPhotoFile != null) {
-            // You can now use the selectedPetPhotoFile in your code
-            String filePath = selectedPetPhotoFile.getAbsolutePath();
-            System.out.println("Selected pet photo file: " + filePath);
-        } else {
-            System.out.println("No pet photo file selected.");
+        JFileChooser AFpetPhotoFC = new JFileChooser(); 
+        int returnValuePets = AFpetPhotoFC.showOpenDialog(null);
+
+        File selectedPetsFile = null; // Initialize it to null
+
+        if (returnValuePets == JFileChooser.APPROVE_OPTION) {
+            selectedPetsFile = AFpetPhotoFC.getSelectedFile();
         }
-        // adoption test
-        String test = testCBOX.getSelectedItem().toString();
-        //Interest
-        String interest = AFinterestCBOX.getSelectedItem().toString();
+
+        FileInputStream petsPhoto = null;
+
+        if (selectedPetsFile != null) {
+            try {
+                petsPhoto = new FileInputStream(selectedPetsFile);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        
         
         String username = getUsername();
+        String motive = AFmotiveTF.getText();
+        int adoptionTest = extractIntegerBeforeComma(testCBOX.getSelectedItem().toString());
+        System.out.println("adoptionTest" + adoptionTest);
         
+        try {
+            // Initialize your connection here (e.g., using DriverManager.getConnection)
+            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:DBDAVID", "ge", "ge");
+            
+            
+            // Call the PL/SQL procedure
+            connection.setAutoCommit(false); //necessario
+            
+            String callStmt = "{call insertionFullAdoptionForm(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+            CallableStatement callableStatement = connection.prepareCall(callStmt);
+            System.out.println("1");
+            callableStatement.setInt(1, Integer.parseInt(interest));
+            System.out.println("2");
+            callableStatement.setInt(2, selectionHouseOwner);
+            System.out.println("3");
+            callableStatement.setInt(3, selectionAuthorization);
+            callableStatement.setString(4, petBudget);
+            callableStatement.setString(5, dailyTime);
+            callableStatement.setString(6, motive); 
+            System.out.println("4");
+            callableStatement.setInt(7, 0); //qualification
+            System.out.println("5");
+            callableStatement.setInt(8, adoptionTest); //adoption test? lo que hay es para escoger animal //funcion agarrar antes de la,
+            System.out.println("6");
+            callableStatement.setInt(9, carereason);
+            System.out.println("7");
+            callableStatement.setBinaryStream(10, (spacePhoto));
+            System.out.println("8");
+            callableStatement.setBinaryStream(11, petsPhoto);
+            System.out.println("9");
+            callableStatement.setString(12, username);
+            System.out.println("10");
+            
 
+            // Execute the stored procedure
+            callableStatement.execute();
+
+            // Commit the transaction
+            connection.commit();//
+            
+            System.out.println("done");
+            // Close the CallableStatement and the Connection
+            callableStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         
         
         this.dispose();
@@ -705,11 +753,11 @@ public class AdoptionFormFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> AFinterestCBOX;
     private javax.swing.JCheckBox AFisHouseOwnerCheck;
     private javax.swing.JCheckBox AFmotiveCheck;
+    private javax.swing.JTextField AFmotiveTF;
     private javax.swing.JCheckBox AFotherPetsCheck;
     private javax.swing.JFileChooser AFpetPhotoFC;
     private javax.swing.JFileChooser AFpetSpaceFC;
     private javax.swing.JButton AFreturnHomeBTN;
-    private javax.swing.JFileChooser AFsleepingSpaceFC;
     private javax.swing.JSpinner AFyearsWithPetJSPIN;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel6;

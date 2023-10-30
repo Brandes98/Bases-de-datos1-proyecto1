@@ -32,7 +32,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" pref="967" max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" pref="786" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -109,36 +109,35 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" attributes="0">
                                                   <Component id="jLabel8" min="-2" pref="130" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
                                                   <Component id="jLabel15" min="-2" pref="141" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="petSicknessCBOX" min="-2" pref="185" max="-2" attributes="0"/>
-                                                      <Component id="jLabel5" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="LostPetPhotoFC" min="-2" pref="347" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="jScrollPane1" min="-2" pref="503" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
                                       </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="jScrollPane1" min="-2" pref="503" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="petSicknessCBOX" pref="185" max="32767" attributes="0"/>
+                                              <Component id="petSicknessTreatmentTF" max="32767" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="LostPetPhotoFC" min="-2" pref="247" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel5" min="-2" pref="142" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                      <Component id="petSicknessTreatmentCBOX" min="-2" pref="185" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="32767" attributes="0"/>
                                   <Component id="jLabel16" min="-2" pref="286" max="-2" attributes="0"/>
                               </Group>
@@ -215,24 +214,27 @@
                               <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="LostPetPhotoFC" min="-2" pref="321" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="petSicknessTreatmentCBOX" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="petSicknessCBOX" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="petSicknessTreatmentTF" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="LostPetPhotoFC" min="-2" pref="118" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -608,54 +610,57 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="petLostDistrictCBOX" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="petLostCantonCBOX" max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="petLostProvinceCBOX" max="32767" attributes="0"/>
-                                                  <Component id="jLabel18" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="petLostDateJC" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jLabel20" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="petLostCountryCBOX" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jLabel19" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jLabel22" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jLabel23" alignment="0" pref="185" max="32767" attributes="0"/>
-                                                  <Component id="petFindingRewardCurrencyCBOX" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="LpetFindingRewardJSPINNER" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="petFoundDateLabel" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="jLabel17" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
-                                                  <Component id="jLabel25" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="petLostDistrictCBOX" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="petLostCantonCBOX" max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                      <Component id="petLostProvinceCBOX" max="32767" attributes="0"/>
+                                                      <Component id="jLabel18" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="petLostDateJC" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="jLabel20" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="petLostCountryCBOX" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="jLabel19" alignment="0" pref="185" max="32767" attributes="0"/>
+                                                      <Component id="petFoundDateLabel" alignment="1" max="32767" attributes="0"/>
+                                                      <Component id="jLabel17" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
+                                                      <Component id="jLabel25" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="jLabel27" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="jLabel27" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
                                           </Group>
+                                          <Component id="jLabel29" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jLabel29" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="carnetTF" min="-2" pref="168" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="106" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel21" pref="185" max="32767" attributes="0"/>
-                                  <Component id="petFoundCountryCBOX" max="32767" attributes="0"/>
-                                  <Component id="jLabel24" min="-2" pref="92" max="-2" attributes="0"/>
-                                  <Component id="jLabel26" min="-2" pref="92" max="-2" attributes="0"/>
-                                  <Component id="petFoundProvinceCBOX" max="32767" attributes="0"/>
-                                  <Component id="jLabel28" min="-2" pref="92" max="-2" attributes="0"/>
-                                  <Component id="petFoundCantonCBOX" max="32767" attributes="0"/>
-                                  <Component id="jLabel30" min="-2" pref="92" max="-2" attributes="0"/>
-                                  <Component id="petFoundDistrictCBOX" max="32767" attributes="0"/>
+                              <EmptySpace pref="45" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel21" min="-2" pref="185" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="petFoundCountryCBOX" pref="185" max="32767" attributes="0"/>
+                                      <Component id="jLabel24" min="-2" pref="92" max="-2" attributes="0"/>
+                                      <Component id="jLabel26" min="-2" pref="92" max="-2" attributes="0"/>
+                                      <Component id="petFoundProvinceCBOX" max="32767" attributes="0"/>
+                                      <Component id="jLabel28" min="-2" pref="92" max="-2" attributes="0"/>
+                                      <Component id="petFoundCantonCBOX" max="32767" attributes="0"/>
+                                      <Component id="jLabel30" min="-2" pref="92" max="-2" attributes="0"/>
+                                      <Component id="petFoundDistrictCBOX" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="jLabel22" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
+                                  <Component id="LpetFindingRewardJSPINNER" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
+                                  <Component id="petFindingRewardCurrencyCBOX" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
+                                  <Component id="jLabel23" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
+                                  <Component id="petSubmitBTN" alignment="1" min="-2" pref="185" max="-2" attributes="0"/>
+                                  <Component id="returnHomeBTN" alignment="1" min="-2" pref="185" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="petSubmitBTN" pref="371" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="returnHomeBTN" min="-2" pref="371" max="-2" attributes="0"/>
+                              <Component id="jLabel31" min="-2" pref="92" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -666,13 +671,30 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                      <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Component id="petLostDateJC" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="petLostDateJC" min="-2" max="-2" attributes="0"/>
+                          <Component id="LpetFindingRewardJSPINNER" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="petFoundDateLabel" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="petFoundDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="petFindingRewardCurrencyCBOX" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -718,19 +740,16 @@
                           <Component id="petLostDistrictCBOX" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="petFoundDistrictCBOX" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                      <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="LpetFindingRewardJSPINNER" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="petFindingRewardCurrencyCBOX" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="88" max="32767" attributes="0"/>
-                      <Component id="petSubmitBTN" min="-2" pref="37" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="10" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="petSubmitBTN" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="carnetTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="returnHomeBTN" min="-2" pref="37" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <EmptySpace pref="439" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1056,6 +1075,19 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="returnHomeBTNActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JLabel" name="jLabel31">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe Print" size="12" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Carnet"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="carnetTF">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="carnetTFActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JLabel" name="jLabel16">
@@ -1117,19 +1149,6 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="petSicknessTreatmentCBOX">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="petSicknessTreatmentCBOXActionPerformed"/>
-          </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel15">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1145,6 +1164,11 @@
         <Component class="javax.swing.JSpinner" name="LpetSizeJSPINNER">
         </Component>
         <Component class="javax.swing.JSpinner" name="LpetNeededSpaceJSPINNER">
+        </Component>
+        <Component class="javax.swing.JTextField" name="petSicknessTreatmentTF">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="petSicknessTreatmentTFActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

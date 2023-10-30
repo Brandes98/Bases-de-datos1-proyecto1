@@ -7,7 +7,8 @@ package proyecto1;
 import Connect.ConexionOracle;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 //
 import java.sql.Connection;
 import java.sql.CallableStatement;
@@ -21,6 +22,7 @@ import oracle.jdbc.OracleTypes;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -789,6 +791,19 @@ public class RegisterFrame extends javax.swing.JFrame {
         rGenreCBOX.addItem("Masculino");
     }
     
+    private static final String EMAIL_PATTERN =
+            "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+    private static final Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+
+    public static boolean isValidEmail(String email) {
+        if (email == null) {
+            return false;
+        }
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+    
     private void rFirstNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rFirstNameTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rFirstNameTFActionPerformed
@@ -832,6 +847,8 @@ public class RegisterFrame extends javax.swing.JFrame {
         String firstSurname = rFirstSurnameTF.getText();
         String secondSurname = rSecondSurnameTF.getText();
         String email = rEmailTF.getText();
+        boolean isValid = isValidEmail(email);
+        
         String phoneNumber = rPhoneNumberTF.getText();
         String username = rUsernameTF.getText();
         String password = rPasswordTF.getText();
@@ -853,9 +870,9 @@ public class RegisterFrame extends javax.swing.JFrame {
         String district = rDistrictCBOX.getSelectedItem().toString();
         String genre = rGenreCBOX.getSelectedItem().toString();
         
-        
-        
-        try {
+        if (isValid) {
+            System.out.println("El correo electrónico es válido: " + email);
+            try {
             // Create a database connection
             Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:DBDAVID", "ge", "ge");
 
@@ -894,13 +911,15 @@ public class RegisterFrame extends javax.swing.JFrame {
         } catch (SQLException e) {
             e.printStackTrace(); // Handle any exceptions here
         }
-        
-        
 
-        
         MainDisplay mainDisplay = new MainDisplay();
         mainDisplay.setVisible(true);
         this.dispose();
+        } else {
+            System.out.println("El correo electrónico no es válido: " + email);
+            JOptionPane.showMessageDialog(null, "Email is not right formatted", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+   
     }//GEN-LAST:event_rAdopterBtnActionPerformed
 
 
@@ -942,7 +961,7 @@ public class RegisterFrame extends javax.swing.JFrame {
         String passwordR = rPasswordTF.getText();
         String identificationR = rIdTF.getText();
         String rescueCenterR = rRescueCenterNameTF.getText();
-        
+        boolean isValid = isValidEmail(emailR);
         //JCalendar
         //Birthdate
         Date selectedBirthdateR = rBirthdateJC.getDate();
@@ -957,7 +976,7 @@ public class RegisterFrame extends javax.swing.JFrame {
         String districtR = rDistrictCBOX.getSelectedItem().toString();
         String genreR = rGenreCBOX.getSelectedItem().toString();
         
-        
+        if (isValid) {
         try {
             // Create a database connection
             Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:DBDAVID", "ge", "ge");
@@ -997,7 +1016,9 @@ public class RegisterFrame extends javax.swing.JFrame {
         } catch (SQLException e) {
             e.printStackTrace(); // Handle any exceptions here
         }
-        
+        }else{
+            JOptionPane.showMessageDialog(null, "Email is not right formatted", "Error", JOptionPane.ERROR_MESSAGE);
+        }
         
         MainDisplay mainDisplay = new MainDisplay();
         mainDisplay.setVisible(true);

@@ -13,6 +13,7 @@ import javax.swing.DefaultComboBoxModel;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.CallableStatement; 
 
 /**
  *
@@ -25,6 +26,7 @@ public class HostHomeFormFrame extends javax.swing.JFrame {
      */
     public HostHomeFormFrame() {
         initComponents();
+        populatePetTypeComboBox();
     }
 
     /**
@@ -231,13 +233,54 @@ public class HostHomeFormFrame extends javax.swing.JFrame {
     
     private void HHFconfirmBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HHFconfirmBTNActionPerformed
         //Text fields
-        String OtherDonation = HHFotherDonationTF.getText();
+        String donationOther = HHFotherDonationTF.getText();
         
         //Spinners
-        Object donationMoney = HHFdonationMoneySPINNER.getValue();
-        Object houseSize = HHFhouseSizeSPINNER.getValue();
+        Object donationMoneyO = HHFdonationMoneySPINNER.getValue();
+        String donationMoney = donationMoneyO.toString();
+        Object houseSizeO = HHFhouseSizeSPINNER.getValue();
+        String houseSize = houseSizeO.toString();
+        //combo box
+        String petType = HHFpetTypeCBOX.getSelectedItem().toString();
         
         String username = getUsername();
+        
+        try {
+            // Initialize your connection here (e.g., using DriverManager.getConnection)
+            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:DBDAVID", "ge", "ge");
+            
+            
+            // Call the PL/SQL procedure
+            connection.setAutoCommit(false);
+            System.out.println("before call");
+            String callStmt = "{call insertHostHomeForm(?, ?, ?, ?, ?)}";
+            System.out.println("call");
+            CallableStatement callableStatement = connection.prepareCall(callStmt);
+            System.out.println("0");
+            callableStatement.setString(1, petType);  
+            System.out.println("1");
+            callableStatement.setString(2, username);
+            System.out.println("2");
+            callableStatement.setInt(3, Integer.parseInt(houseSize));
+            System.out.println("3");
+            callableStatement.setInt(4, Integer.parseInt(donationMoney));
+            System.out.println("4");
+            callableStatement.setString(5, donationOther);
+            System.out.println("5");
+            
+
+            // Execute the stored procedure
+            callableStatement.execute();
+
+            // Commit the transaction
+            connection.commit();
+            System.out.println("done");
+            // Close the CallableStatement and the Connection
+            callableStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         
         
         this.dispose();

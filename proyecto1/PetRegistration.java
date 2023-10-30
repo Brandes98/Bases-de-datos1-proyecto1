@@ -797,22 +797,12 @@ public class PetRegistration extends javax.swing.JFrame {
         
         Object petSizeO = petSizeJSPINNER.getValue();
         String petSize = petSizeO.toString();
-        if (petSizeO instanceof Integer) {
-            //int petSize = (int) petSizeO;
-            System.out.println("Selected size: " + petSize);
-        } else {
-            System.out.println("Invalid size value");
-        }
+        
         
         // pet needed space
         Object petNeededSpaceO = petNeededSpaceJSPINNER.getValue();
         String petNeededSpace = petNeededSpaceO.toString();
-        if (petNeededSpaceO instanceof Integer) {
-            //int petNeededSpace = (int) petNeededSpaceO;
-            System.out.println("Selected space: " + petNeededSpace);
-        } else {
-            System.out.println("Invalid space value");
-        }
+        
         Object petInvestmentO = petInvestmentJSPINNER.getValue();
         String investment = petInvestmentO.toString();
         //Text area
@@ -827,7 +817,8 @@ public class PetRegistration extends javax.swing.JFrame {
             
             
             // Call the PL/SQL procedure
-            connection.setAutoCommit(false);
+            connection.setAutoCommit(false); //necessario
+            
             String callStmt = "{call insertionPet(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
             CallableStatement callableStatement = connection.prepareCall(callStmt);
             callableStatement.setInt(1, Integer.parseInt(petState));  // Set your parameter values accordingly
@@ -849,7 +840,8 @@ public class PetRegistration extends javax.swing.JFrame {
             callableStatement.execute();
 
             // Commit the transaction
-            connection.commit();
+            connection.commit();//
+            
             System.out.println("done");
             // Close the CallableStatement and the Connection
             callableStatement.close();
